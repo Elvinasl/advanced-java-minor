@@ -3,13 +3,15 @@ package exercise2;
 import exercise2.beans.InputParserBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.IOException;
-
 public class Exercise2 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("exercise2.beans");
 
-        InputParserBean parser = ctx.getBean(InputParserBean.class);
-        parser.calculate();
+        while (true) {
+            InputParserBean parser = ctx.getBean(InputParserBean.class);
+            int result = parser.calculate();
+
+            System.out.println("Result: " + result);
+        }
     }
 }

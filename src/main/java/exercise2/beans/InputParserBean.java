@@ -4,9 +4,7 @@ package exercise2.beans;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 @Component
 public class InputParserBean {
@@ -18,16 +16,18 @@ public class InputParserBean {
         this.calculator = calculator;
     }
 
-    private String getInput() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
-    }
+    public int calculate() {
 
-    public void calculate() throws IOException {
-        int input1 = Integer.parseInt(getInput());
-        int input2 = Integer.parseInt(getInput());
+        Scanner scanner = new Scanner(System.in);
 
-        int sum = calculator.sum(input1, input2);
-        System.out.println(sum);
+        System.out.print("Select a first number: ");
+        int input1 = scanner.nextInt();
+        System.out.print("Select a second number: ");
+        int input2 = scanner.nextInt();
+        System.out.println("Select one of the following [*,/,+,-]");
+        String operation = scanner.next();
+
+        return calculator.calcultate(input1, input2, operation);
+
     }
 }
