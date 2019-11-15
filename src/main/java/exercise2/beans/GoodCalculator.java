@@ -17,6 +17,8 @@ public class GoodCalculator implements Calculator {
             return input1 - input2;
         } else if ("sqrt".equals(operator)) {
             return (int) Math.sqrt(input1);
+        }else if ("^".equals(operator)) {
+            return (int) Math.pow(input1, input2);
         } else {
             return 0;
         }

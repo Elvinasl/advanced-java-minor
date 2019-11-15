@@ -25,7 +25,7 @@ public class InputParserBean {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Select one of the following [*,/,+,-,sqrt]");
+        System.out.println("Select one of the following [*,/,+,-,sqrt,^]");
         String operation = scanner.next();
         System.out.print("Select a first number: ");
         int input1 = scanner.nextInt();
