@@ -14,7 +14,8 @@ import java.util.stream.Stream;
 public class InputParserBean {
 
     private Calculator calculator;
-    private Set<String> singleNumberOperations = Stream.of("sqrt", "sin").collect(Collectors.toCollection(HashSet::new));
+    private Set<String> singleNumberOperations = Stream.of("sqrt", "sin", "cos", "tan", "log")
+                                                        .collect(Collectors.toCollection(HashSet::new));
 
     @Autowired
     public InputParserBean(Calculator calculator) {
@@ -25,7 +26,7 @@ public class InputParserBean {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Select one of the following [*, /, +, -, sqrt, ^, sin]");
+        System.out.println("Select one of the following [*, /, +, -, sqrt, ^, sin, cos, tan, log]");
         String operation = scanner.next();
         System.out.print("Select a first number: ");
         int input1 = scanner.nextInt();

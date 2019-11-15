@@ -21,8 +21,15 @@ public class GoodCalculator implements Calculator {
             return Math.pow(input1, input2);
         } else if ("sin".equals(operator)) {
             double radians = Math.toRadians((double) input1);
-            System.out.println("The value of pi is " + Math.PI);
             return Math.sin(radians);
+        } else if ("cos".equals(operator)) {
+            double radians = Math.toRadians((double) input1);
+            return Math.cos(radians);
+        } else if ("tan".equals(operator)) {
+            double radians = Math.toRadians((double) input1);
+            return Math.tan(radians);
+        } else if ("log".equals(operator)) {
+            return Math.log(input1);
         } else {
             return 0;
         }
