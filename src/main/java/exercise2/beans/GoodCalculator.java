@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Profile("good")
 public class GoodCalculator implements Calculator {
-    public int calcultate(int input1, int input2, String operator) {
+    public int calculate(int input1, int input2, String operator) {
         if ("*".equals(operator)) {
             return input1 * input2;
         } else if ("/".equals(operator)) {
@@ -15,6 +15,8 @@ public class GoodCalculator implements Calculator {
             return input1 + input2;
         } else if ("-".equals(operator)) {
             return input1 - input2;
+        } else if ("sqrt".equals(operator)) {
+            return (int) Math.sqrt(input1);
         } else {
             return 0;
         }
