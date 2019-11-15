@@ -14,20 +14,29 @@ import java.util.stream.Stream;
 public class InputParserBean {
 
     private Calculator calculator;
+
+    private Set<String> possibleOperations = Stream.of("*", "/", "+", "-", "sqrt", "sin", "cos", "tan", "log")
+            .collect(Collectors.toCollection(HashSet::new));
+
     private Set<String> singleNumberOperations = Stream.of("sqrt", "sin", "cos", "tan", "log")
-                                                        .collect(Collectors.toCollection(HashSet::new));
+            .collect(Collectors.toCollection(HashSet::new));
 
     @Autowired
     public InputParserBean(Calculator calculator) {
         this.calculator = calculator;
     }
 
-    public double calculate() {
+    public double calculate() throws Exception {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Select one of the following [*, /, +, -, sqrt, ^, sin, cos, tan, log]");
+        System.out.println("Select one of the following " + possibleOperations.toString());
         String operation = scanner.next();
+
+        if(!possibleOperations.contains(operation)) {
+            throw new Exception("Operation not supported!");
+        }
+
         System.out.print("Select a first number: ");
         int input1 = scanner.nextInt();
 

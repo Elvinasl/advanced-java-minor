@@ -4,7 +4,7 @@ import exercise2.beans.InputParserBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Exercise2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("exercise2.beans");
 
         while (true) {
