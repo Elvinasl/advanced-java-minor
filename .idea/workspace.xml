@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab5dfc0e-8a39-4489-be49-c6904c0bc6f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercise2/beans/InputParserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercise2/beans/InputParserBean.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="244">
+              <caret line="25" column="68" lean-forward="true" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/exercise2/beans/InputParserBean.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
-              <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#378#379#0" expanded="true" />
@@ -127,8 +125,8 @@
         <option value="$PROJECT_DIR$/src/main/java/exercise2/beans/Calculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercise2/beans/WrongCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercise2/Exercise2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercise2/beans/InputParserBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java" />
       </list>
     </option>
   </component>
@@ -276,12 +274,12 @@
       <option name="presentableId" value="Default" />
       <updated>1573554636861</updated>
       <workItem from="1573554638116" duration="6630000" />
-      <workItem from="1573823723355" duration="2920000" />
+      <workItem from="1573823723355" duration="3098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10095000" />
+    <option name="totallyTimeSpent" value="10273000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="0" />
@@ -295,7 +293,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32971507" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32971507" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4084125" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4084125" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -304,7 +302,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.40569878" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.40569878" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32971507" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -406,7 +404,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/exercise2/beans/InputParserBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#378#379#0" expanded="true" />
@@ -417,8 +415,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercise2/beans/GoodCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        <state relative-caret-position="244">
+          <caret line="25" column="68" lean-forward="true" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

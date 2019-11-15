@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Profile("wrong")
 public class WrongCalculator implements Calculator {
-    public int calculate(int input1, int input2, String operator) {
+    public double calculate(int input1, int input2, String operator) {
         return -1;
     }
 }

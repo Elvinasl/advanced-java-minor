@@ -9,7 +9,7 @@ public class Exercise2 {
 
         while (true) {
             InputParserBean parser = ctx.getBean(InputParserBean.class);
-            int result = parser.calculate();
+            double result = parser.calculate();
 
             System.out.println("Result: " + result);
         }
