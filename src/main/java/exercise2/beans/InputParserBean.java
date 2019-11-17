@@ -1,7 +1,6 @@
 package exercise2.beans;
 
 
-import exercise2.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class InputParserBean {
     private Set<String> possibleOperations = Stream.of("*", "/", "+", "-", "sqrt", "sin", "cos", "tan", "log")
             .collect(Collectors.toCollection(HashSet::new));
 
-    private Set<String> singleNumberOperations = Stream.of("sqrt", "sin", "cos", "tan", "log")
+    static final Set<String> singleNumberOperations = Stream.of("sqrt", "sin", "cos", "tan", "log")
             .collect(Collectors.toCollection(HashSet::new));
 
     @Autowired
@@ -48,16 +47,16 @@ public class InputParserBean {
         System.out.print("Select a second number: ");
         int input2 = scanner.nextInt();
 
-        calculator.rememberCalculation(input1, input2, operation);
-        Map<String, Double> previousCalculations = calculator.calcHistory();
-        System.out.println(previousCalculations);
         return calculator.calculate(input1, input2, operation);
-
     }
 
     private void verifyOperation(String operation) throws Exception {
         if(!possibleOperations.contains(operation)) {
             throw new Exception("Operation not supported!");
         }
+    }
+
+    public Map<String, Double> getCalcHistory() {
+        return calculator.calcHistory();
     }
 }

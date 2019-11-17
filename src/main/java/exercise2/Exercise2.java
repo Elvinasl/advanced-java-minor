@@ -13,6 +13,7 @@ public class Exercise2 {
             double result = parser.calculate();
 
             System.out.println("Result: " + result);
+            System.out.println("Calculations history: " + parser.getCalcHistory());
         }
     }
 }

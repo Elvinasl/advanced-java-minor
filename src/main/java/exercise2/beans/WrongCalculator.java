@@ -18,7 +18,6 @@ public class WrongCalculator implements Calculator {
         System.out.println("I am stupid calculator. I cannot remember anything...");
     }
 
-    @Override
     public Map<String, Double> calcHistory() {
         return new HashMap<>();
     }

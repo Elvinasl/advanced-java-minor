@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+import static exercise2.beans.InputParserBean.singleNumberOperations;
+
 @Component
 @Profile("good")
 public class GoodCalculator implements Calculator {
@@ -19,6 +21,25 @@ public class GoodCalculator implements Calculator {
     }
 
     public double calculate(int input1, int input2, String operator) {
+        rememberCalculation(input1, input2, operator);
+        return getAnswer(input1, input2, operator);
+    }
+
+    public void rememberCalculation(int input1, int input2, String operator) {
+        double answer = getAnswer(input1, input2, operator);
+        String solution = input1 + operator + input2;
+        if (singleNumberOperations.contains(operator)) {
+            // if it is single number operation, we don't store input2
+            solution = input1+operator;
+        }
+        historyRepository.storeCalculation(solution, answer);
+    }
+
+    public Map<String, Double> calcHistory() {
+        return historyRepository.getCalcHistory();
+    }
+
+    private double getAnswer(int input1, int input2, String operator) {
         if ("*".equals(operator)) {
             return input1 * input2;
         } else if ("/".equals(operator)) {
@@ -45,15 +66,5 @@ public class GoodCalculator implements Calculator {
         } else {
             return 0;
         }
-    }
-
-    public void rememberCalculation(int input1, int input2, String operator) {
-        double answer = calculate(input1, input2, operator);
-        String solution = input1 + operator + input2;
-        historyRepository.storeCalculation(solution, answer);
-    }
-
-    public Map<String, Double> calcHistory() {
-        return historyRepository.getCalcHistory();
     }
 }
