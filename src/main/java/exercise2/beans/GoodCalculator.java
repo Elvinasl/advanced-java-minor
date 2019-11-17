@@ -1,5 +1,6 @@
 package exercise2.beans;
 
+import exercise2.repositories.HistoryObjectRepository;
 import exercise2.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
