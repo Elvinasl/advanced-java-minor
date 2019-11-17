@@ -14,8 +14,9 @@ public class WrongCalculator implements Calculator {
         return -1;
     }
 
-    public void rememberCalculation(int input1, int input2, String operator) {
+    public double rememberCalculation(int input1, int input2, String operator) {
         System.out.println("I am stupid calculator. I cannot remember anything...");
+        return -1;
     }
 
     public Map<String, Double> calcHistory() {

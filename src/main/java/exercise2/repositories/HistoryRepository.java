@@ -18,4 +18,8 @@ public class HistoryRepository {
     public  Map<String, Double> getCalcHistory() {
         return history;
     }
+
+    public double getAnswerBySolution(String solution) {
+        return history.get(solution);
+    }
 }
