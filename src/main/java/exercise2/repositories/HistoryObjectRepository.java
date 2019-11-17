@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-@Profile("good")
+@Profile("wrong")
 public class HistoryObjectRepository implements HistoryRepository {
 
     private Map<String, Double> history = new HashMap<>();
