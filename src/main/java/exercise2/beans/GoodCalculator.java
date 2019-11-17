@@ -1,11 +1,23 @@
 package exercise2.beans;
 
+import exercise2.repositories.HistoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 @Component
 @Profile("good")
 public class GoodCalculator implements Calculator {
+
+    private HistoryRepository historyRepository;
+
+    @Autowired
+    public GoodCalculator(HistoryRepository historyRepository) {
+        this.historyRepository = historyRepository;
+    }
+
     public double calculate(int input1, int input2, String operator) {
         if ("*".equals(operator)) {
             return input1 * input2;
@@ -33,5 +45,15 @@ public class GoodCalculator implements Calculator {
         } else {
             return 0;
         }
+    }
+
+    public void rememberCalculation(int input1, int input2, String operator) {
+        double answer = calculate(input1, input2, operator);
+        String solution = input1 + operator + input2;
+        historyRepository.storeCalculation(solution, answer);
+    }
+
+    public Map<String, Double> calcHistory() {
+        return historyRepository.getCalcHistory();
     }
 }
