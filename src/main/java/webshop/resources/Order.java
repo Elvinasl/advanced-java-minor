@@ -7,17 +7,21 @@ import java.math.BigDecimal;
 
 public class Order {
 
+    private Long id;
     @NotNull
     private BigDecimal amount;
     @Length(min = 1, max = 255)
     private String name;
 
-    public Order(BigDecimal amount, String name) {
-        this.amount = amount;
-        this.name = name;
+    public Order() {
     }
 
-    public Order() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public BigDecimal getAmount() {
