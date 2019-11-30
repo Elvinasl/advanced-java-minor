@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>elvis</groupId>
+    <artifactId>advaced-java-week-2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <spring.version>5.2.1.RELEASE</spring.version>
+        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+        <cargo-core-container-tomcat.version>1.7.7</cargo-core-container-tomcat.version>
+
+    </properties>
+
+    <packaging>war</packaging>
+    <build>   
+        <plugins>
+            <!--We need to package to WAR files to deploy a Java web application-->       
+            <plugin>           
+                <groupId>org.apache.maven.plugins</groupId>           
+                <artifactId>maven-war-plugin</artifactId>           
+                <version>${maven-war-plugin.version}</version>           
+                <configuration>               
+                    <!--You used to need a web.xml file, but now we can do it with just Java-->               
+                    <failOnMissingWebXml>false</failOnMissingWebXml>           
+                </configuration>       
+            </plugin>
+
+<!--            <plugin>           -->
+<!--                <groupId>org.codehaus.cargo</groupId>           -->
+<!--                <artifactId>cargo-maven2-plugin</artifactId>           -->
+<!--                <version>${cargo-core-container-tomcat.version}</version>           -->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; Container configuration &ndash;&gt;               -->
+<!--                    <deployables>                   -->
+<!--                        &lt;!&ndash;The part of the project to deploy, in our case, this whole project&ndash;&gt;                   -->
+<!--                        <deployable>                       -->
+<!--                            <groupId>elvis</groupId>                       -->
+<!--                            <artifactId>advancedjavaweek2</artifactId>                       -->
+<!--                            <type>war</type>                       -->
+<!--                            <properties>                           -->
+<!--                                &lt;!&ndash;We listen to the root path&ndash;&gt;                           -->
+<!--                                <context>/</context>                       -->
+<!--                            </properties>                -->
+<!--                                </deployable>               -->
+<!--                    </deployables>               -->
+<!--                    &lt;!&ndash;The container we want to use and what we use to install it               -->
+<!--                    It can do this automatically as well, but it's neat to define it&ndash;&gt;               -->
+<!--                    <container>                   -->
+<!--                        <containerId>tomcat9x</containerId>                   -->
+<!--                        <artifactInstaller>                       -->
+<!--                            <groupId>org.apache.tomcat</groupId>                       -->
+<!--                            <artifactId>tomcat</artifactId>                   -->
+<!--                                 <version>${cargo-maven2-plugin.version}</version>             -->
+<!--                                   </artifactInstaller>          -->
+<!--                    </container>         -->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+        </plugins>
+    </build>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--Necessary for when we use Servlet API code-->
+        <dependency><groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--For managing our logging-->
+        <dependency>   
+            <groupId>ch.qos.logback</groupId>   
+            <artifactId>logback-classic</artifactId>   
+            <version>1.1.7</version>
+        </dependency>
+
+
+    </dependencies>
+</project>
