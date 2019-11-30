@@ -21,7 +21,7 @@ public class OrderRepository {
         return orders;
     }
 
-    Order getById(long id) {
+    private Order getById(long id) {
         return orders.stream()
                 .filter(o -> o.getId().equals(id))
                 .findFirst()
@@ -33,5 +33,10 @@ public class OrderRepository {
         oldOrder.setAmount(order.getAmount());
         oldOrder.setName(order.getName());
         return oldOrder;
+    }
+
+    List<Order> delete(long id) {
+        orders.removeIf(o -> o.getId().equals(id));
+        return getAll();
     }
 }

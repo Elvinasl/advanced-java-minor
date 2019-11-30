@@ -26,4 +26,8 @@ public class OrderService {
     Order update(Order order) {
         return orderRepository.update(order);
     }
+
+    List<Order> delete(long id) {
+       return orderRepository.delete(id);
+    }
 }
