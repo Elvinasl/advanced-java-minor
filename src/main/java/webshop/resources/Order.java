@@ -1,10 +1,15 @@
 package webshop.resources;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class Order {
 
+    @NotNull
     private BigDecimal amount;
+    @Length(min = 1, max = 255)
     private String name;
 
     public Order(BigDecimal amount, String name) {
