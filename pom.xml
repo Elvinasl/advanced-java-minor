@@ -69,36 +69,36 @@
             </plugin>
 
             <!--We want to deploy our web application and we're using Tomcat for that-->
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.cargo</groupId>-->
-<!--                <artifactId>cargo-maven2-plugin</artifactId>-->
-<!--                <version>${cargo-core-container-tomcat.version}</version>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash; Container configuration &ndash;&gt;-->
-<!--                    <deployables>-->
-<!--                        &lt;!&ndash;The part of the project to deploy, in our case, this whole project&ndash;&gt;-->
-<!--                        <deployable>-->
-<!--                            <groupId>elvis</groupId>-->
-<!--                            <artifactId>advancedjavaweek2</artifactId>-->
-<!--                            <type>war</type>-->
-<!--                            <properties>-->
-<!--                                &lt;!&ndash;We listen to the root path&ndash;&gt;-->
-<!--                                <context>/</context>-->
-<!--                            </properties>-->
-<!--                        </deployable>-->
-<!--                    </deployables>-->
-<!--                    &lt;!&ndash;The container we want to use and what we use to install it-->
-<!--                    It can do this automatically as well, but it's neat to define it&ndash;&gt;-->
-<!--                    <container>-->
-<!--                        <containerId>tomcat9x</containerId>-->
-<!--                        <artifactInstaller>-->
-<!--                            <groupId>org.apache.tomcat</groupId>-->
-<!--                            <artifactId>tomcat</artifactId>-->
-<!--                            <version>${cargo-maven2-plugin.version}</version>-->
-<!--                        </artifactInstaller>-->
-<!--                    </container>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>${cargo-core-container-tomcat.version}</version>
+                <configuration>
+                    <!-- Container configuration -->
+                    <deployables>
+                        <!--The part of the project to deploy, in our case, this whole project-->
+                        <deployable>
+                            <groupId>elvis</groupId>
+                            <artifactId>advancedjavaweek2</artifactId>
+                            <type>war</type>
+                            <properties>
+                                <!--We listen to the root path-->
+                                <context>/</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
+                    <!--The container we want to use and what we use to install it
+                    It can do this automatically as well, but it's neat to define it-->
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <artifactInstaller>
+                            <groupId>org.apache.tomcat</groupId>
+                            <artifactId>tomcat</artifactId>
+                            <version>${cargo-maven2-plugin.version}</version>
+                        </artifactInstaller>
+                    </container>
+                </configuration>
+            </plugin>
 
             <!--We're telling Maven we want to use Java 8. Do you want to use a newer version? You can!
             As long as you use Java 8 minimum for Spring 5-->
