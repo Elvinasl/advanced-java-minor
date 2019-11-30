@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,11 +23,14 @@ public class OrderController {
     }
 
     @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST, path = "/add")
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+    public ResponseEntity<Order> createOrder(@RequestBody @Valid Order order) {
         return ResponseEntity.ok(orderService.create(order));
     }
 
-    //edit order
+    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT, path = "/update")
+    public ResponseEntity<Order> update(@RequestBody @Valid Order order) {
+        return ResponseEntity.ok(orderService.update(order));
+    }
 
     @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET, path = "/all")
     public ResponseEntity<List<Order>> getAll() {

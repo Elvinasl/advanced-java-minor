@@ -20,4 +20,18 @@ public class OrderRepository {
     List<Order> getAll() {
         return orders;
     }
+
+    Order getById(long id) {
+        return orders.stream()
+                .filter(o -> o.getId().equals(id))
+                .findFirst()
+                .get();
+    }
+
+    Order update(Order order) {
+        Order oldOrder = this.getById(order.getId());
+        oldOrder.setAmount(order.getAmount());
+        oldOrder.setName(order.getName());
+        return oldOrder;
+    }
 }

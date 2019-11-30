@@ -22,4 +22,8 @@ public class OrderService {
     List<Order> getAll() {
         return orderRepository.getAll();
     }
+
+    Order update(Order order) {
+        return orderRepository.update(order);
+    }
 }
