@@ -8,25 +8,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/order")
-public class WebshopController {
+import java.util.List;
 
-    private WebShopService webShopService;
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+    private OrderService orderService;
 
     @Autowired
-    public WebshopController(WebShopService webShopService) {
-        this.webShopService = webShopService;
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST, path = "/add")
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        return ResponseEntity.ok(webShopService.create(order));
+        return ResponseEntity.ok(orderService.create(order));
     }
 
     //edit order
 
-    // show all
+    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET, path = "/all")
+    public ResponseEntity<List<Order>> getAll() {
+        return ResponseEntity.ok(orderService.getAll());
+    }
 
     //delete order
 }

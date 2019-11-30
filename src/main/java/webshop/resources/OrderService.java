@@ -3,17 +3,23 @@ package webshop.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class WebShopService {
+import java.util.List;
 
-    private WebShopRepository webShopRepository;
+@Service
+public class OrderService {
+
+    private OrderRepository orderRepository;
 
     @Autowired
-    public WebShopService(WebShopRepository webShopRepository) {
-        this.webShopRepository = webShopRepository;
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
     }
 
     Order create(Order order) {
-        return webShopRepository.create(order);
+        return orderRepository.create(order);
+    }
+
+    List<Order> getAll() {
+        return orderRepository.getAll();
     }
 }
