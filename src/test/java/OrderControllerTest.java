@@ -41,7 +41,7 @@ public class OrderControllerTest {
                 .content(this.getJsonOrder()))
                 .andReturn();
 
-        Assertions.assertEquals(mvcResult.getResponse().getContentAsString(), "{\"id\":1,\"amount\":10,\"name\":\"Test 1\"}");
+        Assertions.assertEquals(mvcResult.getResponse().getContentAsString(), "{\"id\":4,\"amount\":10,\"name\":\"Test 1\"}");
     }
 
     @Test
@@ -50,7 +50,7 @@ public class OrderControllerTest {
         MvcResult mvcResult = this.mockMvc.perform(get("/orders/all"))
                 .andReturn();
 
-        Assertions.assertEquals(mvcResult.getResponse().getContentAsString(), "[{\"id\":1,\"amount\":10,\"name\":\"Test 1\"}]");
+        Assertions.assertEquals(mvcResult.getResponse().getContentAsString(), "[{\"id\":1,\"amount\":1000.00,\"name\":\"Macbook\"},{\"id\":2,\"amount\":600.00,\"name\":\"PC 2014\"},{\"id\":3,\"amount\":799.99,\"name\":\"PC 2018\"},{\"id\":4,\"amount\":10.00,\"name\":\"Test 1\"}]");
     }
 
     @Test
@@ -88,7 +88,7 @@ public class OrderControllerTest {
         MvcResult mvcResultDelete = this.mockMvc.perform(delete("/orders/delete?id=" + orderToDelete.getId()))
                 .andReturn();
 
-        Assertions.assertEquals(mvcResultDelete.getResponse().getContentAsString(), "[{\"id\":1,\"amount\":10,\"name\":\"Test 1\"}]");
+        Assertions.assertEquals(mvcResultDelete.getResponse().getContentAsString(), "[{\"id\":1,\"amount\":1000.00,\"name\":\"Macbook\"},{\"id\":2,\"amount\":600.00,\"name\":\"PC 2014\"},{\"id\":3,\"amount\":799.99,\"name\":\"PC 2018\"},{\"id\":4,\"amount\":10.00,\"name\":\"Test 1\"}]");
     }
 
     private String getJsonOrder() throws JsonProcessingException {
