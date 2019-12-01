@@ -4,7 +4,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.util.Assert;
 import resources.TestApplicationContext;
 import webshop.data.OrderRepository;
 import webshop.data.model.Order;
@@ -26,6 +25,15 @@ public class OrderRepositoryTest {
         Assertions.assertTrue(createdOrder.getId() > 0);
         Assertions.assertEquals(BigDecimal.TEN, createdOrder.getAmount());
         Assertions.assertEquals("Test 1", createdOrder.getName());
+    }
+
+    @Test
+    public void testGetAll() {
+        orderRepository.create(this.mockOrder());
+        List<Order> orders = orderRepository.getAll();
+
+        Assertions.assertTrue(orders.size() >= 1); // not depending on tests order
+        Assertions.assertNotNull(orders.get(0));
     }
 
     private Order mockOrder() {
