@@ -36,9 +36,9 @@ public class OrderRepository {
         return order;
     }
 
-    // TODO: fix get all
+    @Transactional
     public List<Order> getAll() {
-        return new ArrayList<>();
+        return em.createQuery("SELECT o FROM Order o ", Order.class).getResultList();
     }
 
     public Order update(Order order) {

@@ -65,7 +65,7 @@ public class DatabaseConfig {
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource);
     entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-    entityManagerFactoryBean.setPackagesToScan("webshop.data");
+    entityManagerFactoryBean.setPackagesToScan("webshop.data.model");
     return entityManagerFactoryBean;
   }
 }
