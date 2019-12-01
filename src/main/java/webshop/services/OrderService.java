@@ -2,8 +2,8 @@ package webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import webshop.model.Order;
-import webshop.repositories.OrderRepository;
+import webshop.data.model.Order;
+import webshop.data.OrderRepository;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package webshop.config;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-@Slf4j
 @Configuration
 @EnableTransactionManagement // Required for Hibernate
 public class DatabaseConfig {
@@ -49,6 +47,7 @@ public class DatabaseConfig {
     jpaTransactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
     return jpaTransactionManager;
   }
+
   @Bean
   public BeanPostProcessor persistenceTranslation() {
     return new PersistenceExceptionTranslationPostProcessor();
@@ -66,7 +65,7 @@ public class DatabaseConfig {
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource);
     entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-    entityManagerFactoryBean.setPackagesToScan("webshop.model");
+    entityManagerFactoryBean.setPackagesToScan("webshop.data");
     return entityManagerFactoryBean;
   }
 }
