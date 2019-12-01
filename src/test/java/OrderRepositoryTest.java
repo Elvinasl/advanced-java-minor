@@ -40,9 +40,19 @@ public class OrderRepositoryTest {
     public void deleteOrder() {
         Order order = orderRepository.create(this.mockOrder());
         orderRepository.delete(order.getId());
-
         orderRepository.getAll().forEach(o -> Assertions.assertNotEquals(o.getId(), order.getId()));
+    }
 
+    @Test
+    public void updateOrder() {
+        Order order = orderRepository.create(this.mockOrder());
+        order.setName("Updated");
+        order.setAmount(BigDecimal.ONE);
+        Order updatedOrder = orderRepository.update(order);
+
+        Assertions.assertEquals(updatedOrder.getId(), order.getId());
+        Assertions.assertEquals(updatedOrder.getAmount(), BigDecimal.ONE);
+        Assertions.assertEquals("Updated", updatedOrder.getName());
     }
 
     private Order mockOrder() {
