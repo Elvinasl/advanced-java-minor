@@ -41,14 +41,13 @@ public class OrderRepository {
         return em.createQuery("SELECT o FROM Order o ", Order.class).getResultList();
     }
 
+    @Transactional
     public Order update(Order order) {
-        Order oldOrder = this.getById(order.getId());
-        oldOrder.setAmount(order.getAmount());
-        oldOrder.setName(order.getName());
-        em.persist(oldOrder);
-        return oldOrder;
+        em.merge(order);
+        return order;
     }
 
+    @Transactional
     public List<Order> delete(long id) {
         em.detach(this.getById(id));
         return getAll();
