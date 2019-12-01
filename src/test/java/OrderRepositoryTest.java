@@ -36,6 +36,15 @@ public class OrderRepositoryTest {
         Assertions.assertNotNull(orders.get(0));
     }
 
+    @Test
+    public void deleteOrder() {
+        Order order = orderRepository.create(this.mockOrder());
+        orderRepository.delete(order.getId());
+
+        orderRepository.getAll().forEach(o -> Assertions.assertNotEquals(o.getId(), order.getId()));
+
+    }
+
     private Order mockOrder() {
         Order order = new Order();
         order.setAmount(BigDecimal.TEN);
