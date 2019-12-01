@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import webshop.data.model.Order;
 
 import javax.persistence.EntityManager;
@@ -49,7 +48,7 @@ public class OrderRepository {
 
     @Transactional
     public List<Order> delete(long id) {
-        em.detach(this.getById(id));
+        em.remove(this.getById(id));
         return getAll();
     }
 }
