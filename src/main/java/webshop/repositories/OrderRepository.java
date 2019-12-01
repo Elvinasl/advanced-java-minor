@@ -1,6 +1,7 @@
-package webshop.resources;
+package webshop.repositories;
 
 import org.springframework.stereotype.Repository;
+import webshop.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,13 @@ public class OrderRepository {
     private Long id = 1L;
     private List<Order> orders = new ArrayList<>();
 
-    Order create(Order order) {
+    public Order create(Order order) {
         order.setId(id++);
         orders.add(order);
         return order;
     }
 
-    List<Order> getAll() {
+    public List<Order> getAll() {
         return orders;
     }
 
@@ -28,14 +29,14 @@ public class OrderRepository {
                 .get();
     }
 
-    Order update(Order order) {
+    public Order update(Order order) {
         Order oldOrder = this.getById(order.getId());
         oldOrder.setAmount(order.getAmount());
         oldOrder.setName(order.getName());
         return oldOrder;
     }
 
-    List<Order> delete(long id) {
+    public List<Order> delete(long id) {
         orders.removeIf(o -> o.getId().equals(id));
         return getAll();
     }

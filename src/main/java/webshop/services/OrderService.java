@@ -1,7 +1,9 @@
-package webshop.resources;
+package webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import webshop.model.Order;
+import webshop.repositories.OrderRepository;
 
 import java.util.List;
 
@@ -15,19 +17,19 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    Order create(Order order) {
+    public Order create(Order order) {
         return orderRepository.create(order);
     }
 
-    List<Order> getAll() {
+    public List<Order> getAll() {
         return orderRepository.getAll();
     }
 
-    Order update(Order order) {
+    public Order update(Order order) {
         return orderRepository.update(order);
     }
 
-    List<Order> delete(long id) {
+    public List<Order> delete(long id) {
        return orderRepository.delete(id);
     }
 }
