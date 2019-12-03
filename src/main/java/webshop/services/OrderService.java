@@ -25,8 +25,8 @@ public class OrderService {
         return orderRepository.getAll();
     }
 
-    public Order update(Order order) {
-        return orderRepository.update(order);
+    public Order update(Order order, long id) {
+        return orderRepository.update(order, id);
     }
 
     public List<Order> delete(long id) {

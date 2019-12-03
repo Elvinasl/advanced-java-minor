@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 @AllArgsConstructor
 @NoArgsConstructor
+@Transactional
 public class OrderRepository {
 
     /**
@@ -24,29 +25,25 @@ public class OrderRepository {
     @PersistenceContext(unitName = "entityManagerFactory")
     private EntityManager em;
 
-    @Transactional
     public Order getById(Long id) {
         return em.find(Order.class, id);
     }
 
-    @Transactional
     public Order create(Order order) {
         em.persist(order);
         return order;
     }
 
-    @Transactional
     public List<Order> getAll() {
         return em.createQuery("SELECT o FROM Order o ", Order.class).getResultList();
     }
 
-    @Transactional
-    public Order update(Order order) {
+    public Order update(Order order, long id) {
+        order.setId(id);
         em.merge(order);
         return order;
     }
 
-    @Transactional
     public List<Order> delete(long id) {
         em.remove(this.getById(id));
         return getAll();

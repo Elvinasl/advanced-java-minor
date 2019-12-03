@@ -17,7 +17,7 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
         return new String[]{"/"};
     }
 
-    /**
+    /**¡
      * The classes we use for configuring our ApplicationContext
      *
      * @return An array containing configuration classes for our ApplicationContext

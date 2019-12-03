@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import resources.TestApplicationContext;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = TestApplicationContext.class)
+@ActiveProfiles("test")
 public class OrderRepositoryTest {
 
     @Autowired
@@ -48,7 +50,7 @@ public class OrderRepositoryTest {
         Order order = orderRepository.create(this.mockOrder());
         order.setName("Updated");
         order.setAmount(BigDecimal.ONE);
-        Order updatedOrder = orderRepository.update(order);
+        Order updatedOrder = orderRepository.update(order, order.getId());
 
         Assertions.assertEquals(updatedOrder.getId(), order.getId());
         Assertions.assertEquals(updatedOrder.getAmount(), BigDecimal.ONE);
